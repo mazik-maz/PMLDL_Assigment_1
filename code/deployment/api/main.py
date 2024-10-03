@@ -2,11 +2,12 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import numpy as np
+import os
 
 app = FastAPI()
 
 # Load the trained model
-model = joblib.load('../../../models/titanic_model.pkl')
+model = joblib.load('titanic_model.pkl')
 
 # Define the expected input schema
 class TitanicPassenger(BaseModel):

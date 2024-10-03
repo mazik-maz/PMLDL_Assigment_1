@@ -2,10 +2,10 @@
 FROM python:3.9-slim
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /api
 
 # Copy the current directory contents into the container
-COPY . /app
+COPY . /api
 
 # Install FastAPI and other dependencies
 RUN pip install fastapi uvicorn joblib scikit-learn pydantic numpy

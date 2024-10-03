@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: ./api
+    container_name: titanic_api
+    ports:
+      - "8000:8000"
+    networks:
+      - titanic-net
+
+  app:
+    build:
+      context: ./app
+    container_name: titanic_app
+    ports:
+      - "8501:8501"
+    networks:
+      - titanic-net
+    depends_on:
+      - api
+
+networks:
+  titanic-net:
+    driver: bridge
